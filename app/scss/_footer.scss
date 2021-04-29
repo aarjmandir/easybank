@@ -1,0 +1,105 @@
+.footer{
+
+    background-color: $darkBlue;
+    a{
+        color: $lightGrayishBlue;
+    }
+    .container{
+        color: $white;
+        text-align: center;
+        padding: 2.5rem;
+
+        @include breakpoint-up(large){
+            text-align: right;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            grid-template-rows: 1fr auto;
+            grid-template-areas: "logo links1 links2 cta"
+                                "social links1 links2 cta";
+            align-items: center;
+        }
+    }
+
+    &__logo{
+        @include breakpoint-up(large){
+            grid-area: logo;
+        }
+    }
+
+    &__social{
+        margin: 1.875rem 0;
+
+        a{
+            &:not(:last-child){
+                margin-left: 1rem;
+            }
+            
+            svg path{
+                transition: fill 150ms ease-in-out;
+            }
+
+            &:hover svg path{
+                fill: $limeGreen;
+            }
+        }
+
+        @include breakpoint-up(large){
+            grid-area: social;
+            margin: 0;
+        }
+    }
+
+    &__links{
+
+        a{
+            display: block;
+            color: $white;
+            line-height: 2rem;
+            font-size: .95rem;
+            transition: color 150ms ease-in-out;
+
+            &:hover{
+                color: $limeGreen;
+            }
+        }
+
+        &.col1{
+            @include breakpoint-up(large){
+                grid-area: links1;
+                align-self: start;
+
+                a{
+                    line-height: 2.25;
+                }
+            }
+        }
+
+        &.col2{
+            @include breakpoint-up(large){
+                grid-area: links2;
+                align-self: start;
+                
+                a{
+                    line-height: 2.25;
+                }
+            }
+        }
+    }
+
+    &__cta{
+        margin-top: 1.875rem;
+
+        @include breakpoint-up(large){
+            grid-area: cta;
+            text-align: left;
+        }
+    }
+
+    &__copyright{
+        direction: ltr;;
+        margin-top: 1.875rem;
+        font-size: 0.8125rem;
+        color: $grayishBlue;
+    }
+
+}
